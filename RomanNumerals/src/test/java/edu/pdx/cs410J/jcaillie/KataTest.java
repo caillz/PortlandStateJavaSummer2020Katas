@@ -23,4 +23,14 @@ public class KataTest
     assertThat(Kata.convertToRoman(3), equalTo("III"));
   }
 
+  @Test
+  public void fourToRomanNumeral() {
+    assertThat(Kata.convertToRoman(4), equalTo("IV"));
+  }
+
+  /*@Test
+  public void fiveToRomanNumber() {
+    assertThat(Kata.convertToRoman
+  }*/
+
 }
