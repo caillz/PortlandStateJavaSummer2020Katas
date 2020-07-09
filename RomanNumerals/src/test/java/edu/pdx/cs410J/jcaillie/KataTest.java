@@ -5,9 +5,12 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-public class KataTest
-{
-
+public class KataTest{
+//{
+ //@Test(expected = ExceptionInInitializerError)
+  //public void lessThenZero(){
+   //Kata.convertToRoman(-1);
+ //}
   @Test
   public void onetoIromannumeral(){
     assertThat(Kata.convertToRoman(1),equalTo("I"));
@@ -28,9 +31,9 @@ public class KataTest
     assertThat(Kata.convertToRoman(4), equalTo("IV"));
   }
 
-  /*@Test
+  @Test
   public void fiveToRomanNumber() {
-    assertThat(Kata.convertToRoman
-  }*/
+    assertThat(Kata.convertToRoman(5),equalTo("V"));
+  }
 
 }
