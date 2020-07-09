@@ -8,11 +8,19 @@ import static org.hamcrest.Matchers.equalTo;
 public class KataTest
 {
 
-
   @Test
   public void onetoIromannumeral(){
-    assertThat(Kata.convertToRoman(),equalTo("I"));
+    assertThat(Kata.convertToRoman(1),equalTo("I"));
+  }
 
+  @Test
+  public void twoToRomanNumeral(){
+    assertThat(Kata.convertToRoman(2), equalTo("II"));
+  }
+
+  @Test
+  public void threeToRomanNumeral(){
+    assertThat(Kata.convertToRoman(3), equalTo("III"));
   }
 
 }

@@ -15,7 +15,14 @@ public class Kata {
   }
 
 
-  public static String convertToRoman() {
-    return "I";
+  public static String convertToRoman(int number) {
+    if (number == 1)
+      return "I";
+    else if (number == 2)
+      return "II";
+    else if (number ==3)
+      return "III";
+    else
+      return "not programmed";
   }
 }
