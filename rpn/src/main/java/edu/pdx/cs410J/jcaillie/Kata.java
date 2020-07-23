@@ -1,5 +1,7 @@
 package edu.pdx.cs410J.jcaillie;
 
+import jdk.jshell.spi.ExecutionControl;
+
 import java.util.Stack;
 
 /**
@@ -11,14 +13,12 @@ import java.util.Stack;
 public class Kata {
   public static Stack<Integer> parseStack = new Stack<Integer>();
 
-  public static void main(String[] args) {
-    for (String arg : args)
-      System.out.println(arg);
+  public static void main(String[] args) throws ExecutionControl.NotImplementedException {
+    System.out.println(RPN(args));
     System.exit(1);
   }
 
-  public static int RPN(String[] args)
-  {
+  public static int RPN(String[] args) throws ExecutionControl.NotImplementedException {
     for(String arg : args) {
       String operators = "+-/*";
       if (operators.contains(arg)) {
@@ -32,18 +32,28 @@ public class Kata {
       }
     }
 
-    return 0;
+    return parseStack.pop();
   }
 
-  private static void doOperation(String arg) {
+  private static void doOperation(String arg) throws ExecutionControl.NotImplementedException {
+    int arg1 = parseStack.pop();
+    int arg2 = parseStack.pop();
     switch(arg) {
       case "+":
         parseStack.push(parseStack.pop() + parseStack.pop());
         break;
       case "-":
-        parseStack.push(parseStack.pop() - parseStack.pop());
+        parseStack.push(arg2 - arg1);
+        break;
       case "/":
-        parseStack.push(parseStack.pop() / parseStack.pop());
+        parseStack.push(arg2 / arg1);
+        break;
+      case "*":
+        parseStack.push(parseStack.pop() * parseStack.pop());
+        break;
+      default:
+        throw new ExecutionControl.NotImplementedException("Not implemented");
+
     }
   }
 }
