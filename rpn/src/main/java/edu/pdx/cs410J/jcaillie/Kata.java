@@ -1,5 +1,7 @@
 package edu.pdx.cs410J.jcaillie;
 
+import java.util.Stack;
+
 /**
  * A class for getting started with a code kata
  *
@@ -17,6 +19,23 @@ public class Kata {
 
   public static int RPN(String[] args)
   {
-    
+    Stack parseStack = new Stack<Integer>();
+    for(String arg : args) {
+      String operators = "+-/*";
+      if(operators.contains(arg)) {
+        doOperation();
+      } else {
+        try {
+          Integer.parseInt(arg);
+        } catch(NumberFormatException ex) {
+          System.err.println(ex);
+        }
+      }
+  }
+
+  private static void doOperation(String arg) {
+    switch(arg) {
+      case "+":
+    }
   }
 }
