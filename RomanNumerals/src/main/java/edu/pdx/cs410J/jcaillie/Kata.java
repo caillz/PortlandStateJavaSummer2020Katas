@@ -16,6 +16,8 @@ public class Kata {
 
 
   public static String convertToRoman(int number) {
+    //if(number < 0)
+      //throw ExceptionInInitializerError;
     if (number == 1)
       return "I";
     else if (number == 2)
@@ -24,6 +26,8 @@ public class Kata {
       return "III";
     else if (number == 4)
       return "IV";
+    else if (number == 5)
+      return "V";
     else
       return "not programmed";
   }
