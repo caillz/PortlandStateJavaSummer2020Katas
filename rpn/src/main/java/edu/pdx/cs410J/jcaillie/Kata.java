@@ -9,7 +9,7 @@ import java.util.Stack;
  * class (and its tests).
  */
 public class Kata {
-                                                                                    
+  public static Stack<Integer> parseStack = new Stack<Integer>();
 
   public static void main(String[] args) {
     for (String arg : args)
@@ -19,23 +19,31 @@ public class Kata {
 
   public static int RPN(String[] args)
   {
-    Stack parseStack = new Stack<Integer>();
     for(String arg : args) {
       String operators = "+-/*";
-      if(operators.contains(arg)) {
-        doOperation();
+      if (operators.contains(arg)) {
+        doOperation(arg);
       } else {
         try {
-          Integer.parseInt(arg);
-        } catch(NumberFormatException ex) {
+          parseStack.push(Integer.parseInt(arg));
+        } catch (NumberFormatException ex) {
           System.err.println(ex);
         }
       }
+    }
+
+    return 0;
   }
 
   private static void doOperation(String arg) {
     switch(arg) {
       case "+":
+        parseStack.push(parseStack.pop() + parseStack.pop());
+        break;
+      case "-":
+        parseStack.push(parseStack.pop() - parseStack.pop());
+      case "/":
+        parseStack.push(parseStack.pop() / parseStack.pop());
     }
   }
 }
