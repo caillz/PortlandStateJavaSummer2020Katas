@@ -10,4 +10,8 @@ public class KataTest
     new Kata();
   }
 
+  @Test
+  public void canDoFirstExample() {
+    
+  }
 }

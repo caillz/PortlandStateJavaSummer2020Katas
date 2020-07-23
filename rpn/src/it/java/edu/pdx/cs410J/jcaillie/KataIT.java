@@ -16,10 +16,8 @@ public class KataIT extends InvokeMainTestCase {
   }
 
   @Test
-  public void invokingMainWithNoArgumentsPrintsMissingArgumentsToStandardError() {
-    InvokeMainTestCase.MainMethodResult result = invokeMain(Kata.class);
-    assertThat(result.getTextWrittenToStandardError(), containsString("Missing command line arguments"));
+  public void invokingMainPrintsItsArguments() {
+    InvokeMainTestCase.MainMethodResult result = invokeMain(Kata.class, "20", "5", "/");
+    assertThat(result.getTextWrittenToStandardOut(), containsString("20\n5\n/\n"));
   }
-
-
 }
